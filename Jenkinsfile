@@ -1,5 +1,5 @@
 pipeline {
-    agent { label '' }   // force built-in node
+    agent any
 
     environment {
         AWS_DEFAULT_REGION = 'ap-south-1'
