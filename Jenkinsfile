@@ -4,13 +4,13 @@ pipeline {
     environment {
         AWS_DEFAULT_REGION = 'ap-south-1'
         S3_BUCKET = 'static-website-project-krishna'
-        DISTRIBUTION_ID = 'YOUR_CLOUDFRONT_ID'
+        DISTRIBUTION_ID = 'E1PA6W6VPDN1JT'
     }
 
     stages {
         stage('Clone Code') {
             steps {
-                git 'https://github.com/your-username/your-repo.git'
+                git branch: 'main', url: 'https://github.com/InsaneBeastYT/Japan-Website.git'
             }
         }
 
@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Invalidate CloudFront') {
+        stage('Invalidate CloudFront Cache') {
             steps {
                 sh '''
                 aws cloudfront create-invalidation \
