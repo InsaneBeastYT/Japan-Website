@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label '' }   // force built-in node
 
     environment {
         AWS_DEFAULT_REGION = 'ap-south-1'
@@ -22,7 +22,7 @@ pipeline {
             }
         }
 
-        stage('Invalidate CloudFront Cache') {
+        stage('Invalidate CloudFront') {
             steps {
                 sh '''
                 aws cloudfront create-invalidation \
